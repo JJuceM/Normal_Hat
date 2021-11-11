@@ -1,0 +1,46 @@
+package lobby;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class lobby extends JFrame {
+	private String readyState = "0";
+	private JPanel contentPane;
+	
+	public lobby() {
+		Color MyColor = new Color(200,190,230);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0,0,1100,800);		//위치 배치
+		setLocationRelativeTo(null);	//윈도우창 가운데 창 띄우기
+		setResizable(false);			//창 크기 조절 불가
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new LineBorder(Color.BLACK, 5));
+		contentPane.setBackground(MyColor);
+		
+		setContentPane(contentPane);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,114 @@
+package startmenu;
+
+public class StartMenu {
+	import java.awt.*;
+	import java.awt.event.*;
+	import java.awt.geom.*;
+	import java.util.*;
+	import javax.swing.*;
+	public class StartMenu extends JFrame implements ActionListener {
+		
+		JPanel panel;
+		JButton login;
+		JButton member_join;
+		JButton end;
+//		JTextField error_msg;
+		JTextField login_id;
+		JPasswordField login_pw;
+		JLabel error_msg;
+		
+		
+		public StartMenu() {
+			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.setBounds(100, 100, 1100, 800);
+			this.setLocationRelativeTo(null); // Ã¢ Áß¾Ó¿¡¶ß±â
+			this.setTitle("test");
+			
+			
+			getContentPane().setLayout(new BorderLayout(0, 0));
+			panel = new JPanel() {
+				@Override
+				protected void paintComponent(Graphics g) {
+					ImageIcon img = new ImageIcon("images/title/title.png");
+					Dimension d = getSize();
+					g.drawImage(img.getImage(), 0, 0, d.width, d.height, null);
+				}
+			};
+			getContentPane().add(panel, BorderLayout.CENTER);
+			panel.setLayout(null);
+			
+			//ÁÖ¼® Ã³¸® µÇ¾îÀÖ´Â ºÎºÐµéÀº ÃßÈÄ¿¡ ÀÌ¹ÌÁö¸¦ Æ÷Åä¼¥À¸·Î ¸¸µé¾î¼­ ¼öÁ¤¿¹Á¤ÀÔ´Ï´Ù. - 2021. 10. 03 Çö¼®¿ø
+//			ImageIcon login_i = new ImageIcon("images/title/btnStart.png");	// ·Î±×ÀÎ ¾ÆÀÌÄÜ ÀÌ¹ÌÁö(¸¸µé¿¹Á¤)
+			login = new JButton("·Î±×ÀÎ"); // ·Î±×ÀÎ¿¡ iogin_i ³ÖÀ» ¿¹Á¤
+//			login.setBorderPainted(false);		//·Î±×ÀÎ ¹Ú½º Å×µÎ¸® ¾ø¾Ö´Â ±â´É
+//			login.setContentAreaFilled(false);	//·Î±×ÀÎ ¹Ú½º »ö±ò ¾ø¾Ö´Â ±â´É
+			login.setBounds(730,355,120,50);
+//			login.setBounds(800, 524, login_i.getIconWidth(), login_i.getIconHeight());
+			login.setFocusPainted(false);		//·Î±×ÀÎ ±ÛÀÚ Å×µÎ¸® ¾ø¾Ö´Â ±â´É
+			login.setCursor(new Cursor(Cursor.HAND_CURSOR));	// ·Î±×ÀÎÂÊ¿¡ Ä¿¼­ °®´Ù´ë¸é ¼Õ¸ð¾çÀ¸·Î ¹Ù²ñ
+			panel.add(login);
+			
+			member_join = new JButton("È¸¿ø°¡ÀÔ");
+			member_join.setBounds(730,430,120,50);
+			member_join.setFocusPainted(false);
+			member_join.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			panel.add(member_join);
+			
+			end = new JButton("Á¾·á");
+			end.setBounds(450,595,180,60);
+			end.setFocusPainted(false);
+			end.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			panel.add(end);
+			
+			JTextField login_id = new JTextField();
+			login_id.setBackground(Color.white);
+			login_id.setBounds(320,355,400,50);
+			panel.add(login_id);
+			
+			JPasswordField login_pw = new JPasswordField(10);
+			login_pw.setBackground(Color.white);
+			login_pw.setBounds(320,430,400,50);
+			login_pw.setEchoChar('*'); // ºñ¹Ð¹øÈ£ ÀÔ·Â½Ã º°¸ð¾ç Ãâ·Â
+			panel.add(login_pw);
+			
+			// ¹Ø¿¡²¨´Â ·Î±×ÀÎ Ã¼Å©ÀÎµ¥ ÀÌ°Å´Â µ¿ÈÆÀÌÇÑÅ× ¹°¾îºÁ¾ßÂ¡ È÷ÆR
+//			login_pw.addActionListener(new ActionListener(){
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					isLoginCheck();
+//					
+//				}
+	//
+//				private void isLoginCheck() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+	//
+//				
+//			});
+			
+			JLabel error_msg = new JLabel();
+			error_msg.setBackground(Color.white);
+			error_msg.setOpaque(true);		// ·¹ÀÌºí ¹é±×¶ó¿îµå »ö Çã¿ëÇÏ°Ú´Ù´Â ¶æ
+			error_msg.setBounds(225,520,625,50);
+			panel.add(error_msg);
+			
+			this.setVisible(true);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		public static void main(String[] args) {
+			new StartMenu();
+		}
+	}
+
+
+
+
+
+

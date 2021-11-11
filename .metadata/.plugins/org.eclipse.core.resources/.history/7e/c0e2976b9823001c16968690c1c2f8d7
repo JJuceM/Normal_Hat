@@ -1,0 +1,124 @@
+package lobby;
+
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+public class lobby extends JFrame {
+	private String readyState = "0";
+	private JPanel contentPane;
+	private JPanel panelRoom;
+	private JLabel labelRoom;
+	private JPanel panelList;
+	private JLabel labelList;
+	private JButton btnReady;
+	private JLabel centerCharacter;
+	
+	public lobby() {
+		Color MyColor = new Color(200,190,230);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0,0,1100,800);		//위치 배치
+		setLocationRelativeTo(null);	//윈도우창 가운데 창 띄우기
+		setResizable(false);			//창 크기 조절 불가
+		
+		//대표 패널
+		contentPane = new JPanel();
+		contentPane.setBorder(new LineBorder(Color.BLACK, 5));
+		contentPane.setBackground(MyColor);
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		//룸 패널
+		panelRoom = new JPanel();
+		panelRoom.setBounds(50,50,350,670);
+		panelRoom.setBackground(new Color(100,0,100));
+		panelRoom.setLayout(null);
+		contentPane.add(panelRoom);
+		
+		//룸글자(레이블) 랭크패널에 넣기
+		labelRoom = new JLabel("Room List");
+		labelRoom.setBounds(0,0,panelRoom.getWidth(),50);
+		labelRoom.setFont(new Font("Arial Black",Font.BOLD,30));
+		labelRoom.setForeground(Color.ORANGE);
+		labelRoom.setHorizontalAlignment(SwingConstants.CENTER);
+		panelRoom.add(labelRoom);
+		
+		//리스트 패널
+		panelList = new JPanel();
+		panelList.setBounds(770,50,270,536);
+		panelList.setBackground(new Color(100,0,100));
+		contentPane.add(panelList);
+		panelList.setLayout(null);
+		
+		//리스트(레이블) 리스트패널에 넣기
+		labelList = new JLabel("USER LIST");
+		labelList.setBounds(0,0,panelList.getWidth(),50);
+		labelList.setHorizontalAlignment(SwingConstants.CENTER);
+		labelList.setForeground(Color.ORANGE);
+		labelList.setFont(new Font("Arial Black",Font.BOLD,30));
+		panelList.add(labelList);
+		
+		//버튼
+		ImageIcon ready = new ImageIcon("images/lobby/btnReady.png");
+		btnReady = new JButton(ready);
+		btnReady.setBounds(770,622,270,100);
+		btnReady.setContentAreaFilled(false);
+		btnReady.setBorderPainted(false);
+		btnReady.setFocusPainted(false);
+		btnReady.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		contentPane.add(btnReady);
+		
+		//중간 캐릭터
+		ImageIcon character = new ImageIcon("images/lobby/lobbycharacter.png");
+		centerCharacter = new JLabel(character);
+		centerCharacter.setBounds(433,110,310,492);
+		contentPane.add(centerCharacter);
+		
+		
+		//=======================레디 버튼 이벤트==============================
+		btnReady.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(readyState.equals("0")) {
+					readyState = "1";
+				}else {
+					readyState = "0";
+				}
+				System.out.println(readyState);
+			}
+		});
+	
+		setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		new lobby();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
